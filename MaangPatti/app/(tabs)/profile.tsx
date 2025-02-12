@@ -1,40 +1,84 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import ProfilePicture from '../../components/ProfilePicture';
+import MenuItem from '../../components/MenuItem';
+import WalletMenu from '../../components/menu/WalletMenu';
+import PersonalInfoMenu from '../../components/menu/PersonalInfoMenu';
+import SettingsMenu from '../../components/menu/SettingsMenu';
+import HelpSupportMenu from '../../components/menu/HelpSupportMenu';
+import LogoutMenu from '../../components/menu/LogoutMenu';
 
 export default function Profile() {
-  const menuItems = [
-    { icon: 'account-balance-wallet', title: 'Wallet' },
-    { icon: 'person', title: 'Personal Information' },
-    { icon: 'settings', title: 'Settings' },
-    { icon: 'help', title: 'Help & Support' },
-    { icon: 'logout', title: 'Logout' },
-  ];
+  const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
+
+  const handleMenuPress = (menuTitle: string) => {
+    setSelectedMenu(selectedMenu === menuTitle ? null : menuTitle);
+  };
+
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log('Logging out...');
+    setSelectedMenu(null);
+  };
+
+  const renderMenuContent = () => {
+    switch (selectedMenu) {
+      case 'Wallet':
+        return <WalletMenu />;
+      case 'Personal Information':
+        return <PersonalInfoMenu />;
+      case 'Settings':
+        return <SettingsMenu />;
+      case 'Help & Support':
+        return <HelpSupportMenu />;
+      case 'Logout':
+        return (
+          <LogoutMenu 
+            onLogout={handleLogout}
+            onCancel={() => setSelectedMenu(null)}
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.profileHeader}>
-        <View style={styles.profileImageContainer}>
-          <Image
-            source={{ uri: 'https://placeholder.com/150' }} // Replace with actual image
-            style={styles.profileImage}
-          />
-        </View>
+        <ProfilePicture imageUri="https://placeholder.com/150" />
         <Text style={styles.userName}>John Doe</Text>
       </View>
 
       <View style={styles.menuContainer}>
-        {menuItems.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.menuItem}
-            onPress={() => {/* Handle navigation */}}
-          >
-            <MaterialIcons name={item.icon} size={24} color="#333" />
-            <Text style={styles.menuText}>{item.title}</Text>
-            <MaterialIcons name="chevron-right" size={24} color="#666" />
-          </TouchableOpacity>
-        ))}
+        <MenuItem
+          icon="account-balance-wallet"
+          title="Wallet"
+          onPress={() => handleMenuPress('Wallet')}
+        />
+        <MenuItem
+          icon="person"
+          title="Personal Information"
+          onPress={() => handleMenuPress('Personal Information')}
+        />
+        <MenuItem
+          icon="settings"
+          title="Settings"
+          onPress={() => handleMenuPress('Settings')}
+        />
+        <MenuItem
+          icon="help"
+          title="Help & Support"
+          onPress={() => handleMenuPress('Help & Support')}
+        />
+        <MenuItem
+          icon="logout"
+          title="Logout"
+          onPress={() => handleMenuPress('Logout')}
+        />
       </View>
+
+      {renderMenuContent()}
     </View>
   );
 }
@@ -48,18 +92,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  profileImageContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    overflow: 'hidden',
-    borderWidth: 3,
-    borderColor: '#007AFF',
-  },
-  profileImage: {
-    width: '100%',
-    height: '100%',
-  },
   userName: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -67,17 +99,5 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     paddingHorizontal: 15,
-  },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  menuText: {
-    flex: 1,
-    marginLeft: 15,
-    fontSize: 16,
   },
 }); 
