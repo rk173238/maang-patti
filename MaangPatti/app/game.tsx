@@ -1,4 +1,4 @@
-import GamePage from '@/components/GamePage';
+import GamePage from '@/components/gamePage/GamePage';
 
 export default function Game() {
   return <GamePage />;
