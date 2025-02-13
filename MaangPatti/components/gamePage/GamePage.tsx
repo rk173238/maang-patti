@@ -1,19 +1,28 @@
-import { StyleSheet } from 'react-native';
-import { ThemedView } from '@/components/ThemedView';
-import { ThemedText } from '@/components/ThemedText';
+import React from 'react';
+import styles from './GamePage.module.css';
 
-export default function GamePage() {
+const GamePage: React.FC = () => {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">Game Page</ThemedText>
-    </ThemedView>
-  );
-}
+    <div className={styles.container}>
+      <div className={styles.topSection}>
+        {/* Top section content */}
+      </div>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+      <div className={styles.middleSection}>
+        <div className={styles.leftColumn}>
+          <div className={styles.leftBox}></div>
+          <div className={styles.leftBox}></div>
+        </div>
+        <div className={styles.rightColumn}>
+          <div className={styles.rightBox}></div>
+        </div>
+      </div>
+
+      <div className={styles.bottomSection}>
+        {/* Bottom section content */}
+      </div>
+    </div>
+  );
+};
+
+export default GamePage;
