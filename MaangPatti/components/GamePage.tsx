@@ -1,18 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { router } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
-export default function HomeScreen() {
+export default function GamePage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText 
-        type="title" 
-        onPress={() => router.push('/game')}
-        style={styles.playButton}
-      >
-        ▶ Play
-      </ThemedText>
+      <ThemedText type="title">Game Page</ThemedText>
     </ThemedView>
   );
 }
@@ -22,9 +15,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  playButton: {
-    fontSize: 32,
-    padding: 20,
   },
 });
