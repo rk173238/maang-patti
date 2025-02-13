@@ -37,18 +37,6 @@
   padding: 20px;
 }
 
-.leftBox, .rightBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cardImage {
-  max-width: 80%;
-  max-height: 80%;
-  object-fit: contain;
-}
-
 .bottomSection {
   height: 15%;
   width: 100%;
