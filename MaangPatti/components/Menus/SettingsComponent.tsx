@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useState } from 'react';
 import MenuItem from '../MenuItem';
-import SettingsMenu from '../menu/SettingsMenu';
+import SettingsMenu from './content/SettingsMenu';
 
 export default function SettingsComponent() {
   const [isSelected, setIsSelected] = useState(false);

@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useState } from 'react';
 import MenuItem from '../MenuItem';
-import LogoutMenu from '../menu/LogoutMenu';
+import LogoutMenu from './content/LogoutMenu';
 
 export default function LogoutComponent() {
   const [isSelected, setIsSelected] = useState(false);

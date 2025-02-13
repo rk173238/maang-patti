@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useState } from 'react';
 import MenuItem from '../MenuItem';
-import WalletMenu from '../menu/WalletMenu';
+import WalletMenu from './content/WalletMenu';
 
 export default function WalletComponent() {
   const [isSelected, setIsSelected] = useState(false);

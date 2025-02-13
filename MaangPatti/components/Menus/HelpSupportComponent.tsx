@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useState } from 'react';
 import MenuItem from '../MenuItem';
-import HelpSupportMenu from '../menu/HelpSupportMenu';
+import HelpSupportMenu from './content/HelpSupportMenu';
 
 export default function HelpSupportComponent() {
   const [isSelected, setIsSelected] = useState(false);

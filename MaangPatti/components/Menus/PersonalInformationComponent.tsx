@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useState } from 'react';
 import MenuItem from '../MenuItem';
-import PersonalInfoMenu from '../menu/PersonalInfoMenu';
+import PersonalInfoMenu from './content/PersonalInfoMenu';
 
 export default function PersonalInformationComponent() {
   const [isSelected, setIsSelected] = useState(false);
