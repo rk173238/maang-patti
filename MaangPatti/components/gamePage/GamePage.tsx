@@ -7,6 +7,8 @@ import Bottom from './Bottom';
 
 const GamePage: React.FC = () => {
   const [middleCard, setMiddleCard] = useState(getRandomCards());
+  const [topCard,setTopCard] = useState(require('../../assets/cards/1B.svg'))
+  const [bottomCard,setBottomCard] = useState(require('../../assets/cards/1B.svg'))
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,14 +28,14 @@ const GamePage: React.FC = () => {
         <div className={styles.leftColumn}>
           <div className={styles.leftBox}>
           <Image 
-          source={require('../../assets/cards/1B.svg')}
+          source={topCard}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
           </div>
           <div className={styles.leftBox}>
           <Image 
-          source={require('../../assets/cards/1B.svg')}
+          source={bottomCard}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
