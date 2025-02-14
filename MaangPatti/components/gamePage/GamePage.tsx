@@ -4,11 +4,11 @@ import { Image } from 'react-native';
 import { CardImages, getRandomCards } from '../../constants/cards';
 
 const GamePage: React.FC = () => {
-  const [middleCards, setMiddleCards] = useState(getRandomCards(1));
-  
+  const [middleCard, setMiddleCard] = useState(getRandomCards());
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setMiddleCards(getRandomCards(1));
+      setMiddleCard(getRandomCards());
     }, 3000);
 
     // Cleanup interval on component unmount
@@ -19,7 +19,7 @@ const GamePage: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.topSection}>
         <Image 
-          source={require('./1B.svg')}
+          source={require('../../assets/cards/1B.svg')}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
@@ -29,14 +29,14 @@ const GamePage: React.FC = () => {
         <div className={styles.leftColumn}>
           <div className={styles.leftBox}>
           <Image 
-          source={require('./1B.svg')}
+          source={require('../../assets/cards/1B.svg')}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
           </div>
           <div className={styles.leftBox}>
           <Image 
-          source={require('./1B.svg')}
+          source={require('../../assets/cards/1B.svg')}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
@@ -45,7 +45,7 @@ const GamePage: React.FC = () => {
         <div className={styles.rightColumn}>
           <div className={styles.rightBox}>
           <Image 
-          source={CardImages[middleCards[0]]}
+          source={CardImages[middleCard]}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />
@@ -55,7 +55,7 @@ const GamePage: React.FC = () => {
 
       <div className={styles.bottomSection}>
         <Image 
-          source={require('./1B.svg')}
+          source={require('../../assets/cards/1B.svg')}
           style={{ width: 100, height: 140 }}
           resizeMode="contain"
         />

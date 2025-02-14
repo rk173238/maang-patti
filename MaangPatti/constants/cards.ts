@@ -67,8 +67,8 @@ export const CardImages = {
 
 export type CardKey = keyof typeof CardImages;
 
-export const getRandomCards = (count: number): CardKey[] => {
+export const getRandomCards = (): CardKey => {
   const allCards = Object.keys(CardImages) as CardKey[];
   const shuffled = [...allCards].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
+  return shuffled[0];
 };
